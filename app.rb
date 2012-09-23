@@ -91,23 +91,22 @@ path.push final_state
 curr = final_state
 until curr.root == 0
 
-	prev = curr.root
+		#prev = curr.root
 
-#	node_data[:order] = prev.order
-#	node_data[:h] = prev.h
-#	node_data[:g] = prev.g
-#	node_data[:f] = prev.f
+	#	node_data[:order] = prev.order
+	#	node_data[:h] = prev.h
+	#	node_data[:g] = prev.g
+	#	node_data[:f] = prev.f
 
-#	node_obj[:id] = step
-#	node_obj[:data] = node_data
-	data = {"order" => prev.order}
-	obj = {"id" => step, "data" =>data}
-	
-	path.push obj
-	curr = prev
+	#	node_obj[:id] = step
+	#	node_obj[:data] = node_data
+		data = {"order" => curr.order}
+		obj = {"id" => step, "data" =>data}
 		
-	step += 1
-
+		path.push obj
+		curr = curr.root
+			
+		step += 1
 end
 
 
