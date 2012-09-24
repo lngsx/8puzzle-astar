@@ -50,7 +50,7 @@ until found
 
 			#calculate cost
 			successor.g = q.g + 0.265
-			successor.h = successor.cal_h
+			successor.h = successor.cal_h(:manhattan => true, :misplaced => true)
 			successor.f = successor.g + successor.h
 
 			#skip this successor if there is a better node in openlist or closedlist
@@ -80,26 +80,12 @@ end
 
 #show  path
 path = []
-puts "FOUND!1!"
 step =0;
 
-node_obj = {}
-node_id = 0
-node_data = {}
-path.push final_state
-
+#path.push final_state
 curr = final_state
 until curr.root == 0
 
-		#prev = curr.root
-
-	#	node_data[:order] = prev.order
-	#	node_data[:h] = prev.h
-	#	node_data[:g] = prev.g
-	#	node_data[:f] = prev.f
-
-	#	node_obj[:id] = step
-	#	node_obj[:data] = node_data
 		data = {"order" => curr.order}
 		obj = {"id" => step, "data" =>data}
 		
@@ -109,8 +95,16 @@ until curr.root == 0
 		step += 1
 end
 
+data = {"order" => curr.order}
+obj = {"id" => step, "data" =>data}
+path.push obj
 
-path.reverse.each do |node|
+
+header = { "node_visited" => closed.length}
+
+output = {"header" => header, "content" => path}
+
+output.each do |node|
 	puts node.to_json
 end
 puts "#{closed.length} node visited"
