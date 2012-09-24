@@ -8,7 +8,7 @@ open = []
 # initialize the closed list
 closed = []
 
-initial_array = [8,3,5,4,1,6,2,7,0]
+initial_array = [8,3,5,4,1,6,2,7,0].shuffle
 start_node = Puzzle.new(:order => initial_array)
 
 # gold state is set to [1,2,3,8,0,4,7,6,5] by default.
@@ -105,6 +105,8 @@ header = { "node_visited" => closed.length}
 output = {"header" => header, "content" => path}
 
 output.each do |node|
-	puts node.to_json
+	puts node
+	#use .show to draw a puzzle
 end
 puts "#{closed.length} node visited"
+puts "#{step+1} steps has moved"
