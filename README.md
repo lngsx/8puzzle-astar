@@ -12,5 +12,6 @@ There are 2 heuristic functions are being used, [Manhattan distance](http://en.w
 
 See a sample application mounting by rails here http://eightpuzzle-sample-app.herokuapp.com/
 
+![sample app](https://cloud.githubusercontent.com/assets/1572632/5260146/bafc8afc-7a3d-11e4-9bdb-89d45831ef26.png)
 
 Reads Pathfinding using A* (A-Star) by Rajiv Eranki http://web.mit.edu/eranki/www/tutorials/search/
